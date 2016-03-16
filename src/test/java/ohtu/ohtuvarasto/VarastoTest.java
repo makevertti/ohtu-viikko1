@@ -56,7 +56,7 @@ public class VarastoTest {
     }
 
     @Test
-    public void ottaminenLisääTilaa() {
+    public void ottaminenLisaaTilaa() {
         varasto.lisaaVarastoon(8);
 
         varasto.otaVarastosta(2);
@@ -74,5 +74,32 @@ public class VarastoTest {
         varasto = new Varasto(-1,2);
         varasto = new Varasto(-1,-1);
         varasto.toString();
+    }
+
+    @Test
+    public void yliTilavuudenLisaaminenToimii() {
+        varasto.lisaaVarastoon(11);
+        assertEquals(10, varasto.getSaldo(), vertailuTarkkuus);
+    }
+
+    @Test
+    public void negatiivinenLisaysEiTeeMitaan() {
+        varasto.lisaaVarastoon(3);
+        varasto.lisaaVarastoon(-8);
+        assertEquals(3, varasto.getSaldo(), vertailuTarkkuus);
+    }
+
+    @Test
+    public void negatiivisenMaaranOttaminenEiTeeMitaan() {
+        varasto.lisaaVarastoon(5);
+        varasto.otaVarastosta(-2);
+        assertEquals(5, varasto.getSaldo(), vertailuTarkkuus);
+    }
+
+    @Test
+    public void yliSaldonOttaminenToimii() {
+        varasto.lisaaVarastoon(2);
+        varasto.otaVarastosta(3);
+        assertEquals(0, varasto.getSaldo(), vertailuTarkkuus);
     }
 }
