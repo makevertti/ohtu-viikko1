@@ -100,6 +100,6 @@ public class VarastoTest {
     public void yliSaldonOttaminenToimii() {
         varasto.lisaaVarastoon(2);
         varasto.otaVarastosta(3);
-        assertEquals(0, varasto.getSaldo(), vertailuTarkkuus);
+        assertEquals(-1, varasto.getSaldo(), vertailuTarkkuus);
     }
 }
