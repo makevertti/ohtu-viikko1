@@ -3,7 +3,10 @@ package ohtu.verkkokauppa;
 import ohtu.rajapinnat.IPankki;
 import ohtu.rajapinnat.IVarasto;
 import ohtu.rajapinnat.IViitegeneraattori;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class Kauppa {
 
     private IVarasto varasto;
@@ -12,6 +15,7 @@ public class Kauppa {
     private IViitegeneraattori viitegeneraattori;
     private String kaupanTili;
 
+    @Autowired
     public Kauppa(IVarasto varasto, IPankki pankki, IViitegeneraattori viitegeneraattori) {
         this.varasto = varasto;
         this.pankki = pankki;

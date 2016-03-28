@@ -1,7 +1,9 @@
 package ohtu.verkkokauppa;
 
 import ohtu.rajapinnat.IViitegeneraattori;
+import org.springframework.stereotype.Component;
 
+@Component
 public class Viitegeneraattori implements IViitegeneraattori {
     
     private int seuraava;
