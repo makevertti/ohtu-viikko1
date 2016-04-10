@@ -1,13 +1,21 @@
 package ohtu.verkkokauppa;
 
-import ohtu.rajapinnat.IViitegeneraattori;
+public class Viitegeneraattori {
 
-public class Viitegeneraattori implements IViitegeneraattori {
+    private static Viitegeneraattori instanssi;
+
+    public static Viitegeneraattori getInstance() {
+        if (instanssi == null) {
+            instanssi = new Viitegeneraattori();
+        }
+
+        return instanssi;
+    }
     
     private int seuraava;
     
-    public Viitegeneraattori(){
-        seuraava = 1;
+    private Viitegeneraattori(){
+        seuraava = 1;    
     }
     
     public int uusi(){
